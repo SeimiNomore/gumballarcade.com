@@ -3,183 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimalist Auction Site</title>
+    <title>Gumball Arcade Auction House</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f8f9fa;
             color: #333;
+            line-height: 1.6;
         }
+
         header {
             text-align: center;
-            padding: 20px;
-            background-color: #111;
-            color: white;
-        }
-        .marquee {
-            font-family: monospace;
-            background-color: #222;
+            padding: 1rem;
+            background-color: #212529;
             color: #fff;
-            padding: 10px;
-            white-space: nowrap;
-            overflow: hidden;
-            position: relative;
         }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .marquee {
+            background-color: #343a40;
+            color: #00ff00;
+            padding: 1rem;
+            font-family: "Courier New", Courier, monospace;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
         .marquee span {
             display: inline-block;
             animation: marquee 10s linear infinite;
         }
+
         @keyframes marquee {
-            from { transform: translateX(100%); }
-            to { transform: translateX(-100%); }
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
         }
-        .marquee a {
-            color: #4CAF50;
-            text-decoration: none;
-            margin: 0 15px;
-        }
+
         .market-indicators {
-            padding: 20px;
-            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
         }
+
         .indicator {
-            font-family: monospace;
-            margin: 10px;
-        }
-        .indicator.up { color: green; }
-        .indicator.even { color: gray; }
-        .indicator.down { color: red; }
-        .auction-lots {
-            padding: 20px;
+            font-family: "Courier New", Courier, monospace;
             text-align: center;
         }
+
+        .indicator.up {
+            color: green;
+        }
+
+        .indicator.down {
+            color: red;
+        }
+
+        .indicator.stable {
+            color: orange;
+        }
+
+        .auction-section {
+            margin: 2rem 0;
+        }
+
         .auction-lot {
-            background-color: #fff;
-            margin: 10px auto;
-            padding: 15px;
+            background: #fff;
+            margin: 1rem 0;
+            padding: 1rem;
             border: 1px solid #ddd;
-            max-width: 400px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
+
         .auction-lot button {
-            background-color: black;
-            color: white;
+            background-color: #000;
+            color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 0.5rem 1rem;
             cursor: pointer;
-            font-size: 14px;
         }
+
+        .auction-lot button:hover {
+            background-color: #333;
+        }
+
         .signup {
-            padding: 20px;
-            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #e9ecef;
+            border-radius: 5px;
         }
-        .signup form {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .signup form input, .signup form textarea {
-            width: calc(100% - 20px);
-            margin: 10px 0;
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ddd;
-        }
-        .signup form button {
-            background-color: #007BFF;
-            color: white;
+
+        .signup button {
+            background-color: #007bff;
+            color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 0.5rem 1rem;
             cursor: pointer;
-            font-size: 14px;
         }
+
+        .signup button:hover {
+            background-color: #0056b3;
+        }
+
         .exclusive-events {
-            padding: 20px;
-            text-align: center;
-        }
-        .exclusive-event {
-            background-color: #fff;
-            margin: 10px auto;
-            padding: 15px;
+            background: #fff;
+            padding: 1rem;
             border: 1px solid #ddd;
-            max-width: 400px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
+
     </style>
 </head>
 <body>
     <header>
-        <h1>Gumball Auction House</h1>
+        <h1>Gumball Arcade Auction House</h1>
     </header>
 
-    <div class="marquee">
-        <span>
-            <a href="#">Lot #1: Ancient Vase</a>
-            ↑ High Demand! — 
-            <a href="#">Lot #2: Rare Painting</a>
-            = Stable — 
-            <a href="#">Lot #3: Modern Sculpture</a>
-            ↓ Opportunity!
-        </span>
-    </div>
+    <main>
+        <!-- Dynamic Marquee -->
+        <div class="marquee">
+            <span>Current Bid: $500 ↑ | Rare Gumball Machine Collection Ends: 2023-07-08 | Vintage Pinball Machines Coming Soon →</span>
+        </div>
 
-    <section class="market-indicators">
-        <div class="indicator up">↑ Demand Surge</div>
-        <div class="indicator even">= Stability Period</div>
-        <div class="indicator down">↓ Opportunity Phase</div>
-    </section>
+        <!-- Market Indicators -->
+        <div class="market-indicators">
+            <div class="indicator up">↑ High Demand</div>
+            <div class="indicator stable">= Stability</div>
+            <div class="indicator down">↓ Buying Opportunity</div>
+        </div>
 
-    <section class="auction-lots">
-        <div class="auction-lot">
-            <h2>Lot #1: Ancient Vase</h2>
-            <p><code style="color: green;">Starting Bid: $1,000</code></p>
-            <button>Place Bid</button>
-        </div>
-        <div class="auction-lot">
-            <h2>Lot #2: Rare Painting</h2>
-            <p><code style="color: gray;">Starting Bid: $5,000</code></p>
-            <button>Place Bid</button>
-        </div>
-        <div class="auction-lot">
-            <h2>Lot #3: Modern Sculpture</h2>
-            <p><code style="color: red;">Starting Bid: $3,000</code></p>
-            <button>Place Bid</button>
-        </div>
-    </section>
+        <!-- Auction Lots -->
+        <section class="auction-section">
+            <h2>Current Live Auction</h2>
+            <div class="auction-lot">
+                <p><strong>Rare Gumball Machines Collection</strong></p>
+                <p>Current Bid: <span style="font-family: 'Courier New', monospace; color: #00ff00;">$500</span></p>
+                <button>Bid Now</button>
+            </div>
 
-    <section class="signup">
-        <h2>Sign Up to Bid</h2>
-        <form>
-            <input type="text" placeholder="First Name" required>
-            <input type="text" placeholder="Last Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <button type="submit">Sign Up</button>
-        </form>
-        <h2>Request Access to Private Sales</h2>
-        <form>
-            <input type="text" placeholder="First Name" required>
-            <input type="text" placeholder="Last Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <textarea placeholder="Business Address / Personal Address"></textarea>
-            <button type="submit">Request Access</button>
-        </form>
-    </section>
+            <h2>Upcoming Auction Lots</h2>
+            <div class="auction-lot">
+                <p><strong>Vintage Pinball Machines</strong></p>
+                <p>Start Date: 2023-07-15</p>
+                <button>View Details</button>
+            </div>
+            <div class="auction-lot">
+                <p><strong>Classic Arcade Cabinets</strong></p>
+                <p>Start Date: 2023-07-22</p>
+                <button>View Details</button>
+            </div>
+        </section>
 
-    <section class="exclusive-events">
-        <div class="exclusive-event">
-            <h2>Exclusive Event: Vintage Art Showcase</h2>
-            <p>Reach Tier 3 to gain access to this prestigious event.</p>
+        <!-- Sign-Up Forms -->
+        <div class="signup">
+            <h2>Sign Up to Bid</h2>
+            <form>
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+                <button>Sign Up</button>
+            </form>
         </div>
-        <div class="exclusive-event">
-            <h2>Bespoke Popup: Modern Art Gallery</h2>
-            <p>Available to Tier 5 members only. Don’t miss out!</p>
+        <div class="signup">
+            <h2>Request Access to Private Sales</h2>
+            <form>
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+                <textarea placeholder="Business or Personal Address"></textarea>
+                <button>Request Access</button>
+            </form>
         </div>
-    </section>
+
+        <!-- Exclusive Events Section -->
+        <div class="exclusive-events">
+            <h2>Exclusive Gumball Events</h2>
+            <p>Reach Level 5 to unlock access to bespoke popup events and special invitations.</p>
+        </div>
+    </main>
 </body>
 </html>
 
