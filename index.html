@@ -3,186 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gumball Auction</title>
+    <title>Minimal Auction Site</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f9fa;
         }
 
         header {
-            background-color: #000;
+            width: 100%;
+            background-color: #212529;
             color: #fff;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
         }
 
-        .marquee {
-            background-color: #222;
-            color: #0f0;
-            font-family: "Courier New", Courier, monospace;
-            overflow: hidden;
-            white-space: nowrap;
-            box-shadow: 0 4px 2px -2px gray;
+        marquee {
+            display: block;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            color: #007bff;
+            background-color: #e9ecef;
             padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
         }
 
-        .marquee span {
-            display: inline-block;
-            padding-right: 50px;
-            animation: marquee 15s linear infinite;
-        }
-
-        @keyframes marquee {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(-100%);
-            }
-        }
-
-        .content {
-            margin: 20px;
+        .auction-lots {
+            width: 90%;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 20px auto;
         }
 
-        .auction-lot {
-            border: 1px solid #ccc;
-            border-radius: 8px;
+        .lot {
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
             margin: 10px 0;
             padding: 15px;
-            background-color: #fff;
+            font-family: 'Courier New', monospace;
         }
 
-        .auction-lot h3 {
-            font-family: "Courier New", Courier, monospace;
-            font-size: 18px;
-            color: #0073e6;
+        .lot .price {
+            font-size: 1.5em;
         }
 
-        .auction-lot p {
-            font-size: 14px;
-            color: #666;
+        .lot .up {
+            color: green;
         }
 
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            text-align: center;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 14px;
-            margin-top: 10px;
+        .lot .even {
+            color: blue;
         }
 
-        .button.black {
-            background-color: #000;
-            color: #fff;
+        .lot .down {
+            color: red;
         }
 
-        .button.blue {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        .form-section {
+        .buttons {
+            display: flex;
+            justify-content: space-between;
             margin: 20px 0;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        label {
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        input, textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
             border-radius: 5px;
-            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-blue {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-black {
+            background-color: #212529;
+            color: white;
+        }
+
+        .signup-form {
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .signup-form h2 {
+            margin-bottom: 10px;
+        }
+
+        .signup-form input, .signup-form textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
         }
 
         .exclusive-events {
-            background-color: #fafafa;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Gumball Auction</h1>
+    </header>
 
-<header>
-    <h1>Gumball Auction</h1>
-</header>
+    <marquee onclick="alert('Navigate to more details')">
+        Current bid $15,000 ↑ | Current bid $2,000 = | Current bid $25,000 ↓
+    </marquee>
 
-<div class="marquee">
-    <span>$Current_Bid: $15,000 ↑ | $Stability_Period: Bid Stable = | $Buying_Opportunity: Bid Drops ↓</span>
-</div>
-
-<div class="content">
-    <div class="auction-lot">
-        <h3>Lot #001: Abstract Landscape</h3>
-        <p>Starting Bid: $5,000</p>
-        <a href="#" class="button black">View Details</a>
+    <div class="auction-lots">
+        <div class="lot">
+            <div>Lot 1: Stunning Artwork</div>
+            <div class="price"><span class="up">$15,000 ↑</span></div>
+        </div>
+        <div class="lot">
+            <div>Lot 2: Classic Sculpture</div>
+            <div class="price"><span class="even">$2,000 =</span></div>
+        </div>
+        <div class="lot">
+            <div>Lot 3: Rare Painting</div>
+            <div class="price"><span class="down">$25,000 ↓</span></div>
+        </div>
     </div>
 
-    <div class="auction-lot">
-        <h3>Lot #002: Vintage Portrait</h3>
-        <p>Starting Bid: $2,500</p>
-        <a href="#" class="button black">View Details</a>
+    <div class="buttons">
+        <button class="btn-black">Auction Lots</button>
+        <button class="btn-blue">Sign Up to Bid</button>
+        <button class="btn-blue">Request Access to Private Sales</button>
     </div>
 
-    <div class="form-section">
+    <div class="signup-form">
         <h2>Sign Up to Bid</h2>
         <form>
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first-name" required>
-
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="last-name" required>
-
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-
-            <button type="submit" class="button blue">Sign Up to Bid</button>
+            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="Last Name">
+            <button class="btn-blue">Submit</button>
         </form>
     </div>
 
-    <div class="form-section">
-        <h2>Request Access to Private Sales</h2>
+    <div class="signup-form">
+        <h2>Private Sales</h2>
         <form>
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first-name" required>
-
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="last-name" required>
-
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="address">Address (Optional)</label>
-            <textarea id="address" name="address" rows="3"></textarea>
-
-            <button type="submit" class="button blue">Request Access</button>
+            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="Last Name">
+            <textarea placeholder="Additional Information (e.g., Address, Business Details)"></textarea>
+            <button class="btn-blue">Submit</button>
         </form>
     </div>
 
     <div class="exclusive-events">
         <h2>Exclusive Gumball Events</h2>
-        <p>Join bespoke popups and events. Reach Level 2 to gain access to these exclusive gatherings!</p>
+        <p>Unlock access to bespoke popup events. Reach higher levels to secure your invitation!</p>
     </div>
-</div>
-
 </body>
 </html>
