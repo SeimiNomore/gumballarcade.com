@@ -1,180 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimal Auction Site</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f8f9fa;
-        }
-
-        header {
-            width: 100%;
-            background-color: #212529;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        marquee {
-            display: block;
-            font-family: 'Courier New', monospace;
-            font-size: 1.2em;
-            color: #007bff;
-            background-color: #e9ecef;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-
-        .auction-lots {
-            width: 90%;
-            max-width: 600px;
-            margin: 20px auto;
-        }
-
-        .lot {
-            background-color: #ffffff;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-            margin: 10px 0;
-            padding: 15px;
-            font-family: 'Courier New', monospace;
-        }
-
-        .lot .price {
-            font-size: 1.5em;
-        }
-
-        .lot .up {
-            color: green;
-        }
-
-        .lot .even {
-            color: blue;
-        }
-
-        .lot .down {
-            color: red;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px 0;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .btn-blue {
-            background-color: #007bff;
-            color: white;
-        }
-
-        .btn-black {
-            background-color: #212529;
-            color: white;
-        }
-
-        .signup-form {
-            background-color: #ffffff;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-            padding: 20px;
-            margin: 20px 0;
-            width: 90%;
-            max-width: 600px;
-        }
-
-        .signup-form h2 {
-            margin-bottom: 10px;
-        }
-
-        .signup-form input, .signup-form textarea {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-        }
-
-        .exclusive-events {
-            width: 90%;
-            max-width: 600px;
-            background-color: #ffffff;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gumball Arcade Auction House</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      width: 100%;
+      background-color: #222;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .marquee {
+      background-color: #333;
+      color: #00ff00;
+      font-family: monospace;
+      font-size: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .marquee span {
+      display: inline-block;
+      padding: 10px;
+      animation: scroll 10s linear infinite;
+    }
+    @keyframes scroll {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .auction-section {
+      margin-bottom: 20px;
+    }
+    .auction-section h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+    .auction-section .item {
+      margin-bottom: 10px;
+    }
+    .auction-section .item h3 {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+    .auction-section .item p {
+      margin: 5px 0;
+    }
+    .code-font {
+      font-family: monospace;
+      font-size: 14px;
+      color: #0078d4;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .button-blue {
+      background-color: #0078d4;
+      color: white;
+    }
+    .button-black {
+      background-color: black;
+      color: white;
+    }
+    .signup-forms {
+      margin: 20px 0;
+    }
+    .signup-forms form {
+      margin-bottom: 15px;
+    }
+    .signup-forms label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .signup-forms input, .signup-forms textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .exclusive-events {
+      margin-top: 40px;
+      background-color: #f0f8ff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .exclusive-events h2 {
+      color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Gumball Auction</h1>
-    </header>
-
-    <marquee onclick="alert('Navigate to more details')">
-        Current bid $15,000 ↑ | Current bid $2,000 = | Current bid $25,000 ↓
-    </marquee>
-
-    <div class="auction-lots">
-        <div class="lot">
-            <div>Lot 1: Stunning Artwork</div>
-            <div class="price"><span class="up">$15,000 ↑</span></div>
-        </div>
-        <div class="lot">
-            <div>Lot 2: Classic Sculpture</div>
-            <div class="price"><span class="even">$2,000 =</span></div>
-        </div>
-        <div class="lot">
-            <div>Lot 3: Rare Painting</div>
-            <div class="price"><span class="down">$25,000 ↓</span></div>
-        </div>
+  <header>
+    <h1>Gumball Arcade Auction House</h1>
+  </header>
+  <div class="marquee">
+    <span>Auction Live: Rare Gumball Machines Collection - Current Bid: <span class="code-font">$500</span> | Market Indicator: <span class="code-font">↑ High Demand</span></span>
+  </div>
+  <div class="container">
+    <div class="auction-section">
+      <h2>Current Live Auction</h2>
+      <div class="item">
+        <h3>Rare Gumball Machines Collection</h3>
+        <p>Current Bid: <span class="code-font">$500</span></p>
+        <p>A stunning collection of vintage gumball machines from the 1950s and 1960s. The collection includes:</p>
+        <ul>
+          <li>1952 Northwestern Model 60 - Cherry Red</li>
+          <li>1956 Oak Manufacturing Acorn - Chrome and Glass</li>
+          <li>1960 Vendorlator VMC 33 - Turquoise</li>
+          <li>1965 Ford Gumball Machine - Classic Car Shape</li>
+        </ul>
+      </div>
     </div>
-
-    <div class="buttons">
-        <button class="btn-black">Auction Lots</button>
-        <button class="btn-blue">Sign Up to Bid</button>
-        <button class="btn-blue">Request Access to Private Sales</button>
+    <div class="auction-section">
+      <h2>Upcoming Auction Lots</h2>
+      <div class="item">
+        <h3>Vintage Pinball Machines</h3>
+        <p>Date: <span class="code-font">2023-07-15</span></p>
+        <p>A selection of classic pinball machines from the golden age of arcade gaming.</p>
+        <button class="button button-black">Auction Window</button>
+      </div>
+      <div class="item">
+        <h3>Classic Arcade Cabinets</h3>
+        <p>Date: <span class="code-font">2023-07-22</span></p>
+        <p>Original arcade cabinets featuring iconic games that defined a generation.</p>
+        <button class="button button-black">Auction Window</button>
+      </div>
     </div>
-
-    <div class="signup-form">
-        <h2>Sign Up to Bid</h2>
-        <form>
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
-            <button class="btn-blue">Submit</button>
-        </form>
+    <div class="signup-forms">
+      <h2>Sign Up</h2>
+      <form>
+        <label>First Name</label>
+        <input type="text" placeholder="Enter your first name">
+        <label>Last Name</label>
+        <input type="text" placeholder="Enter your last name">
+        <button class="button button-blue">Sign Up to Bid</button>
+      </form>
+      <form>
+        <label>First Name</label>
+        <input type="text" placeholder="Enter your first name">
+        <label>Last Name</label>
+        <input type="text" placeholder="Enter your last name">
+        <label>Address</label>
+        <textarea placeholder="Enter your address"></textarea>
+        <button class="button button-blue">Request Access to Private Sales</button>
+      </form>
     </div>
-
-    <div class="signup-form">
-        <h2>Private Sales</h2>
-        <form>
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
-            <textarea placeholder="Additional Information (e.g., Address, Business Details)"></textarea>
-            <button class="btn-blue">Submit</button>
-        </form>
-    </div>
-
     <div class="exclusive-events">
-        <h2>Exclusive Gumball Events</h2>
-        <p>Unlock access to bespoke popup events. Reach higher levels to secure your invitation!</p>
+      <h2>Exclusive Gumball Events</h2>
+      <p>Bespoke pop-up events are announced periodically. Participants must achieve specific tiers to gain access.</p>
     </div>
+  </div>
 </body>
 </html>
+
