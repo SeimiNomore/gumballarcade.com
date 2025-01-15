@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gumball Auction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .marquee {
+            background-color: #222;
+            color: #0f0;
+            font-family: "Courier New", Courier, monospace;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 4px 2px -2px gray;
+            padding: 10px;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-right: 50px;
+            animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .content {
+            margin: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .auction-lot {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        .auction-lot h3 {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 18px;
+            color: #0073e6;
+        }
+
+        .auction-lot p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .button.black {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .button.blue {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .form-section {
+            margin: 20px 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .exclusive-events {
+            background-color: #fafafa;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Gumball Auction</h1>
+</header>
+
+<div class="marquee">
+    <span>$Current_Bid: $15,000 ↑ | $Stability_Period: Bid Stable = | $Buying_Opportunity: Bid Drops ↓</span>
+</div>
+
+<div class="content">
+    <div class="auction-lot">
+        <h3>Lot #001: Abstract Landscape</h3>
+        <p>Starting Bid: $5,000</p>
+        <a href="#" class="button black">View Details</a>
+    </div>
+
+    <div class="auction-lot">
+        <h3>Lot #002: Vintage Portrait</h3>
+        <p>Starting Bid: $2,500</p>
+        <a href="#" class="button black">View Details</a>
+    </div>
+
+    <div class="form-section">
+        <h2>Sign Up to Bid</h2>
+        <form>
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit" class="button blue">Sign Up to Bid</button>
+        </form>
+    </div>
+
+    <div class="form-section">
+        <h2>Request Access to Private Sales</h2>
+        <form>
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Address (Optional)</label>
+            <textarea id="address" name="address" rows="3"></textarea>
+
+            <button type="submit" class="button blue">Request Access</button>
+        </form>
+    </div>
+
+    <div class="exclusive-events">
+        <h2>Exclusive Gumball Events</h2>
+        <p>Join bespoke popups and events. Reach Level 2 to gain access to these exclusive gatherings!</p>
+    </div>
+</div>
+
+</body>
+</html>
