@@ -6,10 +6,11 @@
     <title>Gumball Arcade Auction</title>
     <style>
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: Helvetica, sans-serif;
+            font-size: 11px;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             color: #333;
         }
         header {
@@ -18,127 +19,117 @@
             padding: 20px;
         }
         .marquee {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #1a1a1a;
-            color: #fff;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            animation: scroll 10s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
         .marquee span {
-            margin: 0 10px;
+            margin-right: 50px;
         }
-        .green { color: #00ff00; }
-        .orange { color: #ffa500; }
-        .red { color: #ff0000; }
-        nav {
-            margin-top: 20px;
-            text-align: center;
-        }
-        nav a {
-            margin: 0 15px;
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .auction-lots, .signup-forms, .events {
+        .marquee .price-increase { color: green; }
+        .marquee .price-stable { color: orange; }
+        .marquee .price-decrease { color: red; }
+        .auction-lots {
             padding: 20px;
         }
         .auction-lot {
             margin-bottom: 15px;
-            padding: 10px;
+        }
+        .auction-lot .new {
+            color: blue;
+        }
+        .auction-lot .session {
+            font-weight: bold;
+        }
+        .market-indicators span {
+            margin-right: 10px;
+        }
+        .market-indicators .demand-surge { color: green; }
+        .market-indicators .stability { color: orange; }
+        .market-indicators .decreased-interest { color: red; }
+        .signup {
+            padding: 20px;
             background-color: #fff;
-            border: 1px solid #ccc;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .auction-lot button {
-            background-color: #000;
-            color: #fff;
-            border: none;
+        .signup h2 {
+            margin-bottom: 10px;
+        }
+        .signup form {
+            display: flex;
+            flex-direction: column;
+        }
+        .signup input {
+            margin-bottom: 10px;
             padding: 10px;
-            cursor: pointer;
+            font-size: 11px;
         }
-        .form {
-            margin-top: 20px;
-        }
-        .form input, .form button {
-            display: block;
-            margin: 10px 0;
+        .signup button {
             padding: 10px;
-            width: 100%;
-        }
-        .form button {
-            background-color: #007bff;
-            color: #fff;
+            font-size: 11px;
+            background-color: blue;
+            color: white;
             border: none;
             cursor: pointer;
+            border-radius: 3px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Gumball Arcade Auction</h1>
+        <div class="marquee">
+            <span class="price-increase">$Current_Bid: $15,000 ↑</span>
+            <span class="price-stable">$Stability_Period: Bid Stable =</span>
+            <span class="price-decrease">$Buying_Opportunity: Bid Drops ↓</span>
+            <a href="#details" class="details">See Details</a>
+        </div>
     </header>
-    <div class="marquee">
-        <span>$Current_Bid: <span class="green">$15,000 ↑</span></span>
-        <span>$Stability_Period: <span class="orange">Bid Stable =</span></span>
-        <span>$Buying_Opportunity: <span class="red">Bid Drops ↓</span></span>
-        <a href="#details">See Details</a>
-        <a href="#bid">Place Bid</a>
-        <a href="#trends">Market Trends</a>
-    </div>
-    <nav>
-        <a href="#lots">Auction Lots</a>
-        <a href="#signup">Sign Up</a>
-        <a href="#events">Exclusive Events</a>
-    </nav>
-
-    <section id="lots" class="auction-lots">
-        <h2>Auction Lots</h2>
-        <div class="auction-lot">
-            <p>Lot #1: Artwork Title (New!)</p>
-            <p>Price: <span class="green">$12,000 ↑</span></p>
-            <p>Market Indicator: <span class="green">↑ Demand Surge</span></p>
-            <button onclick="alert('Viewing details for Lot #1')">View Details</button>
-        </div>
-        <div class="auction-lot">
-            <p>Lot #2: Artwork Title</p>
-            <p>Price: <span class="orange">$8,000 =</span></p>
-            <p>Market Indicator: <span class="orange">= Stability</span></p>
-            <button onclick="alert('Viewing details for Lot #2')">View Details</button>
-        </div>
-        <div class="auction-lot">
-            <p>Lot #3: Artwork Title</p>
-            <p>Price: <span class="red">$5,000 ↓</span></p>
-            <p>Market Indicator: <span class="red">↓ Low Demand</span></p>
-            <button onclick="alert('Viewing details for Lot #3')">View Details</button>
-        </div>
-    </section>
-
-    <section id="signup" class="signup-forms">
-        <h2>Sign Up</h2>
-        <div class="form">
-            <h3>Newsletter to Bid</h3>
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
-            <input type="email" placeholder="Email Address">
-            <button onclick="alert('Signed up for newsletter!')">Sign Up to Bid</button>
-        </div>
-        <div class="form">
-            <h3>Private Sales Signup</h3>
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
-            <input type="email" placeholder="Email Address">
-            <input type="text" placeholder="Business Address (Optional)">
-            <button onclick="alert('Request sent for private sales access!')">Request Access to Private Sales</button>
-        </div>
-    </section>
-
-    <section id="events" class="events">
-        <h2>Exclusive Events</h2>
-        <p>Join bespoke Gumball Arcade events and unlock exclusive opportunities. <a href="#criteria">Reach Level 2</a> to participate!</p>
-    </section>
+    <main>
+        <section class="auction-lots">
+            <h2>Active Auction Lots</h2>
+            <div class="auction-lot">
+                <p class="new">Lot #1: Modern Art Collection</p>
+                <p class="session">Morning Session: 9:00 AM - 12:00 PM</p>
+                <div class="market-indicators">
+                    <span class="demand-surge">↑ Demand Surge</span>
+                    <span class="stability">= Stability Period</span>
+                    <span class="decreased-interest">↓ Decreased Interest</span>
+                </div>
+                <button onclick="alert('Viewing Details for Lot #1')">View Details</button>
+            </div>
+        </section>
+        <section class="signup">
+            <h2>Newsletter to Bid</h2>
+            <form>
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit">Sign Up to Bid</button>
+            </form>
+        </section>
+        <section class="signup">
+            <h2>Private Sales Signup</h2>
+            <form>
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Business Address (Optional)">
+                <button type="submit">Request Access to Private Sales</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
+
 
 
 
