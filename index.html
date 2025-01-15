@@ -1,202 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gumball Auction</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f9;
-      color: #333;
-    }
-
-    header {
-      text-align: center;
-      padding: 20px 10px;
-      background: #000;
-      color: #fff;
-    }
-
-    .marquee {
-      font-family: monospace, monospace;
-      font-size: 18px;
-      background: #333;
-      color: #0ff;
-      white-space: nowrap;
-      overflow: hidden;
-      position: relative;
-      padding: 10px 0;
-    }
-
-    .marquee span {
-      display: inline-block;
-      animation: scroll 10s linear infinite;
-    }
-
-    .marquee a {
-      color: #0ff;
-      text-decoration: none;
-    }
-
-    @keyframes scroll {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    main {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 10px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .section {
-      margin-bottom: 20px;
-    }
-
-    .section h2 {
-      border-bottom: 2px solid #333;
-      padding-bottom: 5px;
-      margin-bottom: 10px;
-    }
-
-    .auction-lot {
-      background: #e6f7ff;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .auction-lot button {
-      background: #000;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-
-    .forms button {
-      background: #007bff;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-
-    .code-text {
-      font-family: "Courier New", Courier, monospace;
-      font-size: 14px;
-      color: #d63384;
-    }
-
-    .market-indicators {
-      display: flex;
-      justify-content: space-around;
-      padding: 10px;
-    }
-
-    .indicator {
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .indicator span {
-      font-size: 24px;
-      display: block;
-    }
-
-    .exclusive-events {
-      background: #fafafa;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Auction Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            color: white;
+        }
+        .marquee {
+            font-family: monospace;
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+        }
+        .marquee span {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+        .marquee a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .market-indicators {
+            padding: 20px;
+            text-align: center;
+        }
+        .indicator {
+            font-family: monospace;
+            margin: 10px;
+        }
+        .indicator.up { color: green; }
+        .indicator.even { color: gray; }
+        .indicator.down { color: red; }
+        .auction-lots {
+            padding: 20px;
+            text-align: center;
+        }
+        .auction-lot {
+            background-color: #fff;
+            margin: 10px auto;
+            padding: 15px;
+            border: 1px solid #ddd;
+            max-width: 400px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .auction-lot button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .signup {
+            padding: 20px;
+            text-align: center;
+        }
+        .signup form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .signup form input, .signup form textarea {
+            width: calc(100% - 20px);
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+        }
+        .signup form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .exclusive-events {
+            padding: 20px;
+            text-align: center;
+        }
+        .exclusive-event {
+            background-color: #fff;
+            margin: 10px auto;
+            padding: 15px;
+            border: 1px solid #ddd;
+            max-width: 400px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Gumball Arcade Auction</h1>
-  </header>
+    <header>
+        <h1>Gumball Auction House</h1>
+    </header>
 
-  <div class="marquee">
-    <span>
-      <a href="#lot1">Lot 1: Bids ↑ | </a>
-      <a href="#lot2">Lot 2: Bids ↓ | </a>
-      <a href="#lot3">Lot 3: Bids = </a>
-    </span>
-  </div>
+    <div class="marquee">
+        <span>
+            <a href="#">Lot #1: Ancient Vase</a>
+            ↑ High Demand! — 
+            <a href="#">Lot #2: Rare Painting</a>
+            = Stable — 
+            <a href="#">Lot #3: Modern Sculpture</a>
+            ↓ Opportunity!
+        </span>
+    </div>
 
-  <main>
-    <section class="section">
-      <h2>Market Indicators</h2>
-      <div class="market-indicators">
-        <div class="indicator">
-          <span>&uarr;</span>
-          <p>Demand Surge</p>
-        </div>
-        <div class="indicator">
-          <span>=</span>
-          <p>Stability Period</p>
-        </div>
-        <div class="indicator">
-          <span>&darr;</span>
-          <p>Buying Opportunity</p>
-        </div>
-      </div>
+    <section class="market-indicators">
+        <div class="indicator up">↑ Demand Surge</div>
+        <div class="indicator even">= Stability Period</div>
+        <div class="indicator down">↓ Opportunity Phase</div>
     </section>
 
-    <section class="section" id="auction-lots">
-      <h2>Auction Lots</h2>
-      <div class="auction-lot" id="lot1">
-        <p>Lot 1: <span class="code-text">$500.00</span></p>
-        <button>Bid Now</button>
-      </div>
-      <div class="auction-lot" id="lot2">
-        <p>Lot 2: <span class="code-text">$300.00</span></p>
-        <button>Bid Now</button>
-      </div>
-      <div class="auction-lot" id="lot3">
-        <p>Lot 3: <span class="code-text">$400.00</span></p>
-        <button>Bid Now</button>
-      </div>
+    <section class="auction-lots">
+        <div class="auction-lot">
+            <h2>Lot #1: Ancient Vase</h2>
+            <p><code style="color: green;">Starting Bid: $1,000</code></p>
+            <button>Place Bid</button>
+        </div>
+        <div class="auction-lot">
+            <h2>Lot #2: Rare Painting</h2>
+            <p><code style="color: gray;">Starting Bid: $5,000</code></p>
+            <button>Place Bid</button>
+        </div>
+        <div class="auction-lot">
+            <h2>Lot #3: Modern Sculpture</h2>
+            <p><code style="color: red;">Starting Bid: $3,000</code></p>
+            <button>Place Bid</button>
+        </div>
     </section>
 
-    <section class="section forms">
-      <h2>Sign-Up Forms</h2>
-      <div>
-        <p>Newsletter Sign-Up:</p>
+    <section class="signup">
+        <h2>Sign Up to Bid</h2>
         <form>
-          <input type="text" placeholder="First Name" required>
-          <input type="text" placeholder="Last Name" required>
-          <button type="submit">Sign Up</button>
+            <input type="text" placeholder="First Name" required>
+            <input type="text" placeholder="Last Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <button type="submit">Sign Up</button>
         </form>
-      </div>
-      <div>
-        <p>Request Access to Private Sales:</p>
+        <h2>Request Access to Private Sales</h2>
         <form>
-          <input type="text" placeholder="First Name" required>
-          <input type="text" placeholder="Last Name" required>
-          <input type="text" placeholder="Address (Optional)">
-          <button type="submit">Request Access</button>
+            <input type="text" placeholder="First Name" required>
+            <input type="text" placeholder="Last Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea placeholder="Business Address / Personal Address"></textarea>
+            <button type="submit">Request Access</button>
         </form>
-      </div>
     </section>
 
-    <section class="section exclusive-events">
-      <h2>Exclusive Gumball Events</h2>
-      <p>Reach Level 3 to unlock bespoke popups and invitations.</p>
+    <section class="exclusive-events">
+        <div class="exclusive-event">
+            <h2>Exclusive Event: Vintage Art Showcase</h2>
+            <p>Reach Tier 3 to gain access to this prestigious event.</p>
+        </div>
+        <div class="exclusive-event">
+            <h2>Bespoke Popup: Modern Art Gallery</h2>
+            <p>Available to Tier 5 members only. Don’t miss out!</p>
+        </div>
     </section>
-  </main>
 </body>
 </html>
 
