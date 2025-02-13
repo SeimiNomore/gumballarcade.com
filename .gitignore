@@ -1,0 +1,39 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Build output
+dist/
+build/
+.out/
+.next/
+
+# Dependencies
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Editor settings
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Cache & Temp files
+*.log
+.cache/
+.tmp/
+
+# System files
+Thumbs.db
+
