@@ -1,0 +1,334 @@
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
+/*  ******************* */
+
+.scene{
+display: flex;
+justify-content: center;
+padding:30px 55px;
+}
+.comingsoon{
+max-width: 734px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+/*.pic img{
+max-width:1500px;
+width:100%;
+padding: 0px 0;
+}*/
+
+.pic img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    cursor: zoom-in;
+  }
+
+.piece-info{
+font-size: 9px;
+font-family: system-ui, sans-serif;
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+text-decoration: none;
+font-weight: 500;
+color: black;
+margin-bottom: 20px;
+}
+
+.jlcmenu{
+display: flex;
+flex-direction: row;
+width: 100%;
+justify-content: center;
+gap: 20px;
+margin-bottom:20px;
+}
+.jlcmenu a{
+font-size: 11px;
+font-family: system-ui, sans-serif;
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+text-decoration: none;
+font-weight: 500;
+color: black;
+}
+
+a:hover {
+color: rgb(224, 224, 228); /* Color when the mouse hovers over the link */
+font-weight: bold; /* Default weight */
+transition: font-weight 0.2s ease; /* Smooth transition effect */
+}
+
+.passwordField .field:after{
+box-shadow: 0 0 0 var(--inputs-border-width) #e7e7e78c !important;
+}
+
+.passwordField .field__label{
+color: #e7e7e78c !important;
+}
+
+.passwordField .newsletter-form__button .icon{
+color: #e7e7e78c;
+}
+
+@media (min-width: 1024px) {
+    /* DESKTOP VERSION OF TEXT */
+    .mobile-textContent{
+        display: none;
+    }
+    .textContent{
+        display: flex;
+        flex-direction: row;
+        gap:50px;
+    }
+
+    .textContent .col1{
+        text-align: right;
+        max-width: 350px;
+        letter-spacing: 0.6px;
+        min-width: 300px;
+    }
+
+    .textContent .col1 h1{
+        font-size:15px;
+        font-family: times;
+        color: black;
+        font-weight: 100;
+        margin-top:39px;
+        font-style: italic;
+    }
+    .textContent .col1 p span{
+        display:block;
+        margin-top: 0px;
+        margin-bottom:27px;
+    }
+    .textContent .col1 p{
+        font-size: 12px;
+        font-family: "Faustina", serif;
+        font-optical-sizing: auto;
+        font-weight: normal;
+        font-style: italic;
+    }
+    .newsletter-form__field-wrapper{
+        max-width:500px;
+    }
+    .textContent .col2 h1{
+        font-size:25px;
+        font-family: "Faustina", serif;
+        font-optical-sizing: auto;
+        font-weight: normal;
+        font-style: italic;
+        margin-bottom:65px;
+        margin-top:25px;
+        
+    }
+
+    .textContent .col2 p{
+        font-size: 12.4px;
+        font-family: "Faustina", serif;
+        font-optical-sizing: auto;
+        font-weight: light;
+        font-style: normal;
+        letter-spacing: 0.8px;
+    }
+
+    .jlc-footnotes {
+        max-width: 734px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .footnotes-general {
+        padding-left: 0px;
+        font-size: 10px;
+        font-style: italic;
+        border-left-width: 5px;
+        margin-bottom: 50px;
+        letter-spacing: 0.05em;
+        font-family: "Faustina", serif;
+    }
+
+    .footer-menu {
+        background-color: #f8f9fa; /* Light background color */
+        padding: 20px 10px;
+        text-align: center;
+        font-family: 'Open Sans', Arial, sans-serif;
+    }
+
+    .footer-nav {
+        margin-bottom: 15px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Spacing between links */
+    }
+
+    .footer-links li {
+        display: inline-block;
+    }
+
+    .footer-links a {
+        text-decoration: none;
+        color: #000;
+        font-size: 11px;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: rgb(224, 224, 228); /* Change color on hover */
+        font-weight: bold;
+    }
+
+    .footer-info {
+        font-family: 'Open Sans', Arial, sans-serif;
+        font-size: 9px;
+        color: #6c757d;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-links {
+    flex-direction: column;
+    gap: 10px; /* Adjust spacing for mobile */
+    }
+}
+
+
+@media (max-width: 1023px) {
+    /* MOBILE VERSION OF TEXT */
+    .textContent{
+        display: none;  
+    }
+
+    .mobile-textContent{
+        display: flex;
+        flex-direction: column;
+    }
+        
+    .mobile-textContent .presents {
+        text-align: left;
+        font-size: 12px;
+        color: black;
+        font-weight: 100;
+        font-family: "Faustina", serif;
+        font-optical-sizing: auto;
+        font-weight: normal;
+        font-style: italic;
+        margin-top: 48px;
+        margin-bottom: 1px;
+    }
+
+    .mobile-textContent .specialSet {
+        font-size: 11px;
+        font-family: "Faustina", serif;
+        font-optical-sizing: auto;
+        font-weight: normal;
+        font-style: italic;
+        margin-block-end: 1px;
+        margin-block-start: 1px;
+        margin-bottom: 15px;
+        letter-spacing: .6px;
+
+
+    }
+
+    .mobile-textContent .headline {
+        font-size: 25px;
+        font-family: "Faustina", serif;
+        font-optical-sizing: auto;
+        font-weight: normal;
+        font-style: italic;
+        margin-bottom: 10px;
+        margin-top:30px;
+    }
+
+    .intro-title {
+        font-size: 10px;
+        font-family: "Faustina", serif;
+        font-optical-sizing: auto;
+        font-weight: light;
+        font-style: normal;
+    }
+
+    .mobile-textContent .general {
+        font-size:13px;
+        font-family: "Faustina", serif;
+        font-optical-sizing: auto;
+        font-weight: light;
+        font-style: normal;
+
+    }
+
+    .mobile-textContent .jlc-footnotes {
+        font-size: 10px;
+        font-style: italic;
+        margin-left: 54px;
+        margin-right: 54px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+
+    .footer-menu {
+        background-color: #f8f9fa; /* Light background color */
+        padding: 20px 10px;
+        text-align: center;
+        font-family: 'Open Sans', Arial, sans-serif;
+    }
+
+    .footer-textContent{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-nav {
+        margin-bottom: 15px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Spacing between links */
+    }
+
+    .footer-links li {
+        display: inline-block;
+    }
+
+    .footer-links a {
+        text-decoration: none;
+        color: #000;
+        font-size: 11px;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: rgb(224, 224, 228); /* Change color on hover */
+        font-weight: bold;
+    }
+
+    .footer-info {
+        font-family: 'Open Sans', Arial, sans-serif;
+        font-size: 9px;
+        color: #6c757d;
+        margin-top: 10px;
+    }
+}
