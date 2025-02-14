@@ -97,20 +97,38 @@
         color: #e7e7e78c;
       }
 
-       main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
+      .hero {
+            padding: 50px;
+            background: #f4f4f4;
         }
-        article {
-            background-color: #fff;
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+        }
+        .feature {
+            background: white;
             padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1, h2, h3 {
-            margin-top: 0;
+        .image-links {
+            padding: 40px;
         }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .image-container a img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .image-container a img:hover {
+            transform: scale(1.1);
 
       @media (min-width: 1024px) {
         /* DESKTOP VERSION OF TEXT */
@@ -400,13 +418,37 @@
         </div>
 
         <main>
-          <article>
-              <h2>Blog Post Title</h2>
-              <p>By Author Name on Date</p>
-              <p>Blog post summary or excerpt goes here...</p>
-          </article>
-          <!-- Repeat <article> for more posts -->
-      </main>
+          <section class="hero">
+              <h2>Welcome to Odfense Astro</h2>
+              <p>Modern web design and development solutions.</p>
+              <button>Get Started</button>
+          </section>
+          
+          <section class="features">
+              <div class="feature">
+                  <h3>Feature 1</h3>
+                  <p>Description of feature 1.</p>
+              </div>
+              <div class="feature">
+                  <h3>Feature 2</h3>
+                  <p>Description of feature 2.</p>
+              </div>
+              <div class="feature">
+                  <h3>Feature 3</h3>
+                  <p>Description of feature 3.</p>
+              </div>
+          </section>
+  
+          <section class="image-links">
+              <h2>Explore More</h2>
+              <div class="image-container">
+                  <a href="#"><img src="image1.jpg" alt="Image 1"></a>
+                  <a href="#"><img src="image2.jpg" alt="Image 2"></a>
+                  <a href="#"><img src="image3.jpg" alt="Image 3"></a>
+                  <a href="#"><img src="image4.jpg" alt="Image 4"></a>
+              </div>
+          </section>
+        </main>
 
         <div class="textContent">
           <div class="col1">
