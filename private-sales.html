@@ -50,17 +50,13 @@
         padding: 0px 0;
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      .sales {
+      .column {
         float: left;
         width: 33.33%;
         padding: 5px;
       }
 
-      /* Clearfix (clear floats) */
+      /* Clear floats after image containers */
       .row::after {
         content: "";
         clear: both;
@@ -426,6 +422,18 @@
         </div>
         <div class="piece-info">
           <b>Some kind of Blue (2022)</b> — Estimate: $8,000-10,000, Portrait of a Jazz musician Miles Davis, thinking in on a stool, three-quarter length. Oil on canvas, 38 x 38 in (96.52 x 96.52 cm).
+        </div>
+
+        <div class="row">
+          <div class="column">
+            <img src="img_snow.jpg" alt="Snow" style="width:100%">
+          </div>
+          <div class="column">
+            <img src="img_forest.jpg" alt="Forest" style="width:100%">
+          </div>
+          <div class="column">
+            <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
+          </div>
         </div>
 
         <hr style="width:100%;text-align:left;margin-left:0">
