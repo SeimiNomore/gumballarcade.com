@@ -31,8 +31,26 @@
       @import url('https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
       /*  ******************* */
 
+      
+      * {
+        box-sizing: border-box;
+      }
+
+      .column {
+        float: left;
+        width: 33.33%;
+        padding: 5px;
+      }
+
+      /* Clearfix (clear floats) */
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      
       .scene{
-        max-width: 75%;
         display: flex;
         justify-content: center;
         padding:30px 55px;
